@@ -1,0 +1,41 @@
+#!/bin/bash
+
+cd "$( dirname "${BASH_SOURCE[0]}" )"
+
+if [ $# -eq 0 ]
+then
+	echo "No wallpaper program specified. Selecting random program."
+	choice=$(shuf -n 1 -i 1-6)
+	case $choice in
+	1)
+		./wp-gen landscape
+		;;
+	2)
+		./wp-gen islands
+		;;
+	3)
+		./wp-gen clouds
+		;;
+	4)
+		./wp-gen tangles
+		;;
+	5)
+		./wp-gen marrowlike
+		;;
+	6)
+		./wp-gen mesh
+		;;
+	esac
+else
+	if [ "$1" == "clean" ]
+	then
+		rm ./*.o
+		rm wallpaper.jpg
+		rm wallpaper.ppm
+	else
+		echo "Generating wallpaper with program '$1'."
+		[ -f "$1".o ] || gcc -s -Ofast -lm "$1".c -o "$1".o
+		./"$1".o wallpaper.ppm
+		convert wallpaper.ppm wallpaper.jpg
+	fi
+fi
