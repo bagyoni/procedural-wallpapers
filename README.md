@@ -10,7 +10,7 @@ A collection of wallpaper generators
 1. Add the *wp-gen* script to your startup applications. This will change your wallpaper at each startup.
 
 ## Generators
-clouds
+![clouds]
 (https://github.com/ba-sz-at/procedural-wallpapers/blob/master/examples/clouds.png)
 islands
 landscape
