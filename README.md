@@ -13,16 +13,16 @@ A collection of wallpaper generators
 
 <table>
 <tr>
-<td><img src="examples/clouds.png" width="400"></td>
-<td><img src="examples/islands.png" width="400"></td>
+<td><img src="examples/clouds.jpg" width="400"></td>
+<td><img src="examples/islands.jpg" width="400"></td>
 </tr>
 <tr>
-<td><img src="examples/landscape.png" width="400"></td>
-<td><img src="examples/marrowlike.png" width="400"></td>
+<td><img src="examples/landscape.jpg" width="400"></td>
+<td><img src="examples/marrowlike.jpg" width="400"></td>
 </tr>
 <tr>
-<td><img src="examples/mesh.png" width="400"></td>
-<td><img src="examples/tangles.png" width="400"></td>
+<td><img src="examples/mesh.jpg" width="400"></td>
+<td><img src="examples/tangles.jpg" width="400"></td>
 </tr>
 </table>
 ## Notes
