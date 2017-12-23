@@ -13,16 +13,40 @@ A collection of wallpaper generators
 
 <table>
 <tr>
-<td><img src="examples/clouds.jpg" width="400"></td>
-<td><img src="examples/islands.jpg" width="400"></td>
+	<td>
+		<img src="examples/clouds.jpg" width="400">
+		**Clouds**
+		Perlin noise run through a sigmoid function.
+	</td>
+	<td>
+		<img src="examples/islands.jpg" width="400">
+		**Islands**
+		Perlin noise run through a cutoff function.
+	</td>
 </tr>
 <tr>
-<td><img src="examples/landscape.jpg" width="400"></td>
-<td><img src="examples/marrowlike.jpg" width="400"></td>
+	<td>
+		<img src="examples/landscape.jpg" width="400">
+		**Landscape** ([original source](https://tyrellrummage.github.io/landscape/))
+		Simulated erosion using a midpoint displacement technique.
+	</td>
+	<td>
+		<img src="examples/marrowlike.jpg" width="400">
+		**Marrowlike** ([original source](http://pcg.wikidot.com/forum/t-79282/multiplicative-cascades-ish))
+		If a pixel is "too black", give it a random color. Scale to double size. Repeat.
+	</td>
 </tr>
 <tr>
-<td><img src="examples/mesh.jpg" width="400"></td>
-<td><img src="examples/tangles.jpg" width="400"></td>
+	<td>
+		<img src="examples/mesh.jpg" width="400">
+		**Mesh**
+		Transformations of the complex plane.
+	</td>
+	<td>
+		<img src="examples/tangles.jpg" width="400">
+		**Tangles**
+		Rec-tangles.
+	</td>
 </tr>
 </table>
 ## Notes
