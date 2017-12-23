@@ -10,13 +10,21 @@ A collection of wallpaper generators
 1. Add the *wp-gen* script to your startup applications. This will change your wallpaper at each startup.
 
 ## Generators
-![clouds]
-(https://github.com/ba-sz-at/procedural-wallpapers/blob/master/examples/clouds.png)
-islands
-landscape
-marrowlike
-mesh
-tangles
+
+<table>
+<tr>
+<td><img src="examples/clouds.png" width="200"></td>
+<td><img src="examples/islands.png" width="200"></td>
+</tr>
+<tr>
+<td><img src="examples/landscape.png" width="200"></td>
+<td><img src="examples/marrowlike.png" width="200"></td>
+</tr>
+<tr>
+<td><img src="examples/mesh.png" width="200"></td>
+<td><img src="examples/tangles.png" width="200"></td>
+</tr>
+</table>
 ## Notes
 * All wallpapers are 1024x768. If you have a different resolution, you can either change your wallpaper style to Strech or rewrite the programs. Sorry.
 
