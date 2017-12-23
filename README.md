@@ -15,40 +15,41 @@ A collection of wallpaper generators
 <tr>
 	<td>
 		<img src="examples/clouds.jpg" width="400">
-		**Clouds**
-		Perlin noise run through a sigmoid function.
+		<b>Clouds</b>
+		<p>Perlin noise run through a sigmoid function.
 	</td>
 	<td>
 		<img src="examples/islands.jpg" width="400">
-		**Islands**
-		Perlin noise run through a cutoff function.
+		<b>Islands</b>
+		<p>Perlin noise run through a cutoff function.
 	</td>
 </tr>
 <tr>
 	<td>
 		<img src="examples/landscape.jpg" width="400">
-		**Landscape** ([original source](https://tyrellrummage.github.io/landscape/))
-		Simulated erosion using a midpoint displacement technique.
+		<b>Landscape</b> (<a href="https://tyrellrummage.github.io/landscape/">original source</a>)
+		<p>Simulated erosion using a midpoint displacement technique.
 	</td>
 	<td>
 		<img src="examples/marrowlike.jpg" width="400">
-		**Marrowlike** ([original source](http://pcg.wikidot.com/forum/t-79282/multiplicative-cascades-ish))
-		If a pixel is "too black", give it a random color. Scale to double size. Repeat.
+		<b>Marrowlike</b> (<a href="http://pcg.wikidot.com/forum/t-79282/multiplicative-cascades-ish">original source</a>)
+		<p>If a pixel is "too black", give it a random color. Scale to double size. Repeat.
 	</td>
 </tr>
 <tr>
 	<td>
 		<img src="examples/mesh.jpg" width="400">
-		**Mesh**
-		Transformations of the complex plane.
+		<b>Mesh</b>
+		<p>Transformations of the complex plane.
 	</td>
 	<td>
 		<img src="examples/tangles.jpg" width="400">
-		**Tangles**
-		Rec-tangles.
+		<b>Tangles</b>
+		<p>Rec-tangles.
 	</td>
 </tr>
 </table>
+
 ## Notes
 * All wallpapers are 1024x768. If you have a different resolution, you can either change your wallpaper style to Strech or rewrite the programs. Sorry.
 
