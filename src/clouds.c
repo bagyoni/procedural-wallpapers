@@ -9,7 +9,7 @@
 #define WID 1024
 #define HEI 768
 
-char *bytes;
+char bytes[WID * HEI * 3];
 
 static unsigned int SEED;
 
@@ -82,11 +82,8 @@ float perlin2d(float x, float y, float freq, int depth)
 	return fin/div;
 }
 
-int
-main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
 	SEED = (unsigned)time(NULL);
-	bytes = malloc(WID*HEI*3);
 	
 	int x, y;
    	for (x=0; x<WID; x++) {

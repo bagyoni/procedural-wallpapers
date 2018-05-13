@@ -9,7 +9,7 @@
 #define HEI 768
 #define LEVEL(in, c1, c2, c3)   in>215 ? c1 : (in>210 ? c2 : c3)
 
-char *bytes;
+char bytes[WID * HEI * 3];
 
 static unsigned int SEED;
 
@@ -78,21 +78,48 @@ float perlin2d(float x, float y, float freq, int depth)
 	return fin/div;
 }
 
-int
-main(int argc, char *argv[])
-{
+void draw_horiz_dashed(int y) {
+	int x;
+	for (x=0; x<WID; x++) {
+		if (x%20 < 10) {
+			bytes[(WID*y+x)*3]   = 100;
+			bytes[(WID*y+x)*3+1] = 96;
+			bytes[(WID*y+x)*3+2] = 82;
+		}
+	}
+}
+
+void draw_vert_dashed(int x) {
+	int y;
+	for (y=0; y<HEI; y++) {
+		if (y%20 < 10) {
+			bytes[(WID*y+x)*3]   = 100;
+			bytes[(WID*y+x)*3+1] = 96;
+			bytes[(WID*y+x)*3+2] = 82;
+		}
+	}
+}
+
+int main(int argc, char *argv[]) {
 	SEED = (unsigned)time(NULL);
-	bytes = malloc(WID*HEI*3);
 	
 	int x, y;
    	for (x=0; x<WID; x++) {
 		for (y=0; y<HEI; y++) {
 			unsigned char val = 128+(char)(perlin2d(x, y, 0.01, 6)*128);
-			bytes[(WID*y+x)*3] = LEVEL(val, 110, 120, 0);
-			bytes[(WID*y+x)*3+1] = LEVEL(val, 160, 100, 0);
-			bytes[(WID*y+x)*3+2] = LEVEL(val, 40, 30, val);
+			bytes[(WID*y+x)*3]   = LEVEL(val, 202*val/255, 154, (198+val)/2);
+			bytes[(WID*y+x)*3+1] = LEVEL(val, 168*val/255, 115, (151+val)/2);
+			bytes[(WID*y+x)*3+2] = LEVEL(val, 131*val/255, 82,  ( 63+val)/2);
 		}
 	}
+	draw_horiz_dashed(200);
+	draw_horiz_dashed(400);
+	draw_horiz_dashed(600);
+	draw_vert_dashed(200);
+	draw_vert_dashed(400);
+	draw_vert_dashed(600);
+	draw_vert_dashed(800);
+	draw_vert_dashed(1000);
 	FILE *out = fopen(argv[1], "w");
 	
 	fprintf(out, "P6\n");

@@ -33,7 +33,7 @@ A collection of wallpaper generators
 	<td>
 		<img src="examples/marrowlike.jpg" width="400">
 		<b>Marrowlike</b> (<a href="http://pcg.wikidot.com/forum/t-79282/multiplicative-cascades-ish">original source</a>)
-		<p>If a pixel is "too black", give it a random color. Scale to double size. Repeat.
+		<p>If a pixel is too dark, give it a random brightness. Scale to double size. Repeat.
 	</td>
 </tr>
 <tr>
@@ -46,6 +46,18 @@ A collection of wallpaper generators
 		<img src="examples/tangles.jpg" width="400">
 		<b>Tangles</b>
 		<p>Rec-tangles.
+	</td>
+</tr>
+<tr>
+	<td>
+		<img src="examples/fern.jpg" width="400">
+		<b>Fern</b>
+		<p>Barnsley-fern with mutation.
+	</td>
+	<td>
+		<img src="examples/lightning.jpg" width="400">
+		<b>Lightning</b>
+		<p>Similar to a Brownian tree but faster to generate.
 	</td>
 </tr>
 </table>

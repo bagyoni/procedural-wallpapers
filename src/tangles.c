@@ -6,7 +6,7 @@
 #define WID 1024
 #define HEI 768
 
-char *bytes;
+char bytes[WID * HEI * 3];
 
 void draw_rect(int maxsize, int r, int g, int b) {
 
@@ -52,8 +52,7 @@ void draw() {
 int main(int argc, char **argv) {
 
 	srand((unsigned)time(NULL));
-	bytes = malloc(WID*HEI*3);
-	memset(bytes, 255, WID*HEI*3);
+	memset(bytes, 230, WID*HEI*3);
 	draw();
 	
 	FILE *out = fopen(argv[1], "w");

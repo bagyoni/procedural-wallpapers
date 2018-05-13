@@ -5,7 +5,7 @@ cd "$( dirname "${BASH_SOURCE[0]}" )"
 if [ $# -eq 0 ]
 then
 	echo "No wallpaper program specified. Selecting random program."
-	choice=$(shuf -n 1 -i 1-6)
+	choice=$(shuf -n 1 -i 1-8)
 	case $choice in
 	1)
 		./wp-gen landscape
@@ -25,16 +25,23 @@ then
 	6)
 		./wp-gen mesh
 		;;
+	7)
+		./wp-gen fern
+		;;
+	8)
+		./wp-gen lightning
+		;;
 	esac
 else
 	if [ "$1" == "clean" ]
 	then
-		rm ./*.o
-		rm wallpaper.jpg
-		rm wallpaper.ppm
+		rm -r out/*.o
 	else
 		echo "Generating wallpaper with program '$1'."
-		[ -f "$1".o ] || gcc -s -Ofast -lm "$1".c -o "$1".o
+		mkdir -p out
+		cd out
+		[ -f "$1".o ] && [ $(date +%s%N -r ../"$1".c) -lt $(date +%s%N -r "$1".o) ] \
+				|| gcc -s -Ofast -lm ../"$1".c -o "$1".o
 		./"$1".o wallpaper.ppm
 		convert wallpaper.ppm wallpaper.jpg
 	fi

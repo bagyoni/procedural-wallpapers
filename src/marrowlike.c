@@ -9,7 +9,7 @@
 #define WID 1024
 #define HEI 768
 
-char *bytes;
+char bytes[WID * HEI * 3];
 unsigned char *map;
 int width, height;
 
@@ -97,8 +97,6 @@ void draw_thing() {
 int main(int argc, char **argv) {
 
 	srand(time(NULL));
-	bytes = malloc(WID*HEI*3);
-	memset(bytes, 255, WID*HEI*3);
 	draw_thing();
 	
 	FILE *out = fopen(argv[1], "w");

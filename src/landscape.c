@@ -9,7 +9,7 @@
 #define HEI 768
 #define ITER 10
 
-char *bytes;
+char bytes[WID * HEI * 3];
 
 double *points;
 int points_len;
@@ -93,7 +93,6 @@ void generate_landscape() {
 
 int main(int argc, char **argv) {
 
-	bytes = malloc(WID*HEI*3);
 	memset(bytes, 240, WID*HEI*3);
 	generate_landscape();
 	

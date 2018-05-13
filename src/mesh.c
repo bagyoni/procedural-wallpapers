@@ -7,8 +7,8 @@
 #define WID 1024
 #define HEI 768
 
-char *bytes;
-float complex poly[5];
+char bytes[WID * HEI * 3];
+float complex poly1[5], poly2[5];
 char r, g, b;
 
 void fgcolor(char red, char green, char blue) {
@@ -17,15 +17,19 @@ void fgcolor(char red, char green, char blue) {
 	b=blue;
 }
 
-float complex p(float complex z) {
-	return poly[4]*z*z*z*z + poly[3]*z*z*z + poly[2]*z*z + poly[1]*z;
+float complex p1(float complex z) {
+	return poly1[4]*z*z*z*z + poly1[3]*z*z*z + poly1[2]*z*z + poly1[1]*z;
+}
+
+float complex p2(float complex z) {
+	return poly2[4]*z*z*z*z + poly2[3]*z*z*z + poly2[2]*z*z + poly2[1]*z;
 }
 
 float complex f(float complex z) {
-	return cpow(2*I, p(z)/200)*100 + p(z);
+	return cpow(2*I, p1(z-50)/200)*100 + p2(z);
 }
 
-void gen_p() {
+void gen_poly(float complex * poly) {
 	poly[1] = ((int)(rand()&255) - 128)/100. + ((int)(rand()&255) - 128)/100.*I;
 	poly[2] = ((int)(rand()&255) - 128)/100000. + ((int)(rand()&255) - 128)/100000.*I;
 	poly[3] = ((int)(rand()&255) - 128)/100000000. + ((int)(rand()&255) - 128)/100000000.*I;
@@ -60,7 +64,8 @@ void draw_vert(float re, float im1, float im2) {
 
 void draw() {
 
-	gen_p();
+	gen_poly(poly1);
+	gen_poly(poly2);
 	fgcolor(rand(), rand(), rand());
 	draw_horiz(-200.5f, -600.f, 600.f);
 	draw_horiz(-150.5f, -600.f, 600.f);
@@ -72,19 +77,19 @@ void draw() {
 	draw_horiz(150.5f, -600.f, 600.f);
 	draw_horiz(200.5f, -600.f, 600.f);
 	fgcolor(rand(), rand(), rand());
+	draw_vert(-150.5f, -600.f, 600.f);
 	draw_vert(-100.5f, -600.f, 600.f);
 	draw_vert(-50.5f, -600.f, 600.f);
 	draw_vert(0.5f, -600.f, 600.f);
 	draw_vert(50.5f, -600.f, 600.f);
 	draw_vert(100.5f, -600.f, 600.f);
+	draw_vert(150.5f, -600.f, 600.f);
 	
 }
 
 int main(int argc, char **argv) {
 
 	srand((unsigned)time(NULL));
-	bytes = malloc(WID*HEI*3);
-	memset(bytes, 0, WID*HEI*3);
 	draw();
 	
 	FILE *out = fopen(argv[1], "w");
