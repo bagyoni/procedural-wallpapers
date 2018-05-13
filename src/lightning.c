@@ -60,7 +60,10 @@ void draw() {
 	int green = rand() % 120;
 	step = 1;
 	while (step < PNUM) {
-		fgcolor(red, green, 100+step*155/PNUM);
+		fgcolor(
+			red + (200-red)*(PNUM-step)/PNUM,
+			green + (200-green)*(PNUM-step)/PNUM,
+			255);
 		next_step();
 	}
 }
