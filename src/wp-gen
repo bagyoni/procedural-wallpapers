@@ -5,7 +5,7 @@ cd "$( dirname "${BASH_SOURCE[0]}" )"
 if [ $# -eq 0 ]
 then
 	echo "No wallpaper program specified. Selecting random program."
-	choice=$(shuf -n 1 -i 1-8)
+	choice=$(shuf -n 1 -i 1-9)
 	case $choice in
 	1)
 		./wp-gen landscape
@@ -30,6 +30,9 @@ then
 		;;
 	8)
 		./wp-gen lightning
+		;;
+	9)
+		./wp-gen zebra
 		;;
 	esac
 else

@@ -6,7 +6,7 @@ A collection of wallpaper generators
 1. `git clone https://github.com/ba-sz-at/procedural-wallpapers.git`
 1. `cd procedural-wallpapers/src`
 1. `./wp-gen`
-1. The previous command should have generated a *wallpaper.jpg* in src. Set it as your desktop background.
+1. The previous command should have generated a *wallpaper.jpg* in src/out. Set it as your desktop background.
 1. Add the *wp-gen* script to your startup applications. This will change your wallpaper at each startup.
 
 ## Generators
@@ -58,6 +58,13 @@ A collection of wallpaper generators
 		<img src="examples/lightning.jpg" width="400">
 		<b>Lightning</b>
 		<p>Similar to a Brownian tree but faster to generate.
+	</td>
+</tr>
+<tr>
+	<td>
+		<img src="examples/zebra.jpg" width="400">
+		<b>Zebra</b>
+		<p>The same complex function as in the Mesh program, but from a different perspective.
 	</td>
 </tr>
 </table>
