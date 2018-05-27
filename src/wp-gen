@@ -1,40 +1,26 @@
 #!/bin/bash
 
+generators=(
+	landscape
+	islands
+	clouds
+	tangles
+	marrowlike
+	mesh
+	fern
+	lightning
+	zebra
+	water
+	flow
+)
+
 cd "$( dirname "${BASH_SOURCE[0]}" )"
 
 if [ $# -eq 0 ]
 then
 	echo "No wallpaper program specified. Selecting random program."
-	choice=$(shuf -n 1 -i 1-9)
-	case $choice in
-	1)
-		./wp-gen landscape
-		;;
-	2)
-		./wp-gen islands
-		;;
-	3)
-		./wp-gen clouds
-		;;
-	4)
-		./wp-gen tangles
-		;;
-	5)
-		./wp-gen marrowlike
-		;;
-	6)
-		./wp-gen mesh
-		;;
-	7)
-		./wp-gen fern
-		;;
-	8)
-		./wp-gen lightning
-		;;
-	9)
-		./wp-gen zebra
-		;;
-	esac
+	index=$(($RANDOM % ${#generators[@]}))
+	./wp-gen ${generators[index]}
 else
 	if [ "$1" == "clean" ]
 	then

@@ -11,58 +11,71 @@ A collection of wallpaper generators
 
 ## Generators
 
-<table>
+<table width="100%">
 <tr>
-	<td>
-		<img src="examples/clouds.jpg" width="400">
+	<td width="50%">
+		<img src="examples/clouds.jpg">
 		<b>Clouds</b>
-		<p>Perlin noise run through a sigmoid function.
+		<p>Perlin noise fed into a sigmoid function.
 	</td>
-	<td>
-		<img src="examples/islands.jpg" width="400">
-		<b>Islands</b>
-		<p>Perlin noise run through a cutoff function.
-	</td>
-</tr>
-<tr>
-	<td>
-		<img src="examples/landscape.jpg" width="400">
-		<b>Landscape</b> (<a href="https://tyrellrummage.github.io/landscape/">original source</a>)
-		<p>Simulated erosion using a midpoint displacement technique.
-	</td>
-	<td>
-		<img src="examples/marrowlike.jpg" width="400">
-		<b>Marrowlike</b> (<a href="http://pcg.wikidot.com/forum/t-79282/multiplicative-cascades-ish">original source</a>)
-		<p>If a pixel is too dark, give it a random brightness. Scale to double size. Repeat.
-	</td>
-</tr>
-<tr>
-	<td>
-		<img src="examples/mesh.jpg" width="400">
-		<b>Mesh</b>
-		<p>Transformations of the complex plane.
-	</td>
-	<td>
-		<img src="examples/tangles.jpg" width="400">
-		<b>Tangles</b>
-		<p>Rec-tangles.
-	</td>
-</tr>
-<tr>
-	<td>
-		<img src="examples/fern.jpg" width="400">
+	<td width="50%">
+		<img src="examples/fern.jpg">
 		<b>Fern</b>
 		<p>Barnsley-fern with mutation.
 	</td>
-	<td>
-		<img src="examples/lightning.jpg" width="400">
-		<b>Lightning</b>
-		<p>Similar to a Brownian tree but faster to generate.
+</tr>
+<tr>
+	<td width="50%">
+		<img src="examples/flow.jpg">
+		<b>Flow</b>
+		<p>Perlin flow field.
+	</td>
+	<td width="50%">
+		<img src="examples/islands.jpg">
+		<b>Islands</b>
+		<p>Perlin noise fed into a cutoff function.
 	</td>
 </tr>
 <tr>
-	<td>
-		<img src="examples/zebra.jpg" width="400">
+	<td width="50%">
+		<img src="examples/landscape.jpg">
+		<b>Landscape</b> (<a href="https://tyrellrummage.github.io/landscape/">original source</a>)
+		<p>Simulated erosion using a midpoint displacement technique.
+	</td>
+	<td width="50%">
+		<img src="examples/lightning.jpg">
+		<b>Lightning</b>
+		<p>Similar to a Brownian tree but faster to generate.
+	</td>
+	
+</tr>
+<tr>
+	<td width="50%">
+		<img src="examples/marrowlike.jpg">
+		<b>Marrowlike</b> (<a href="http://pcg.wikidot.com/forum/t-79282/multiplicative-cascades-ish">original source</a>)
+		<p>If a pixel is too dark, give it a random brightness. Scale to double size. Repeat.
+	</td>
+	<td width="50%">
+		<img src="examples/mesh.jpg">
+		<b>Mesh</b>
+		<p>Transformations of the complex plane.
+	</td>
+</tr>
+<tr>
+	<td width="50%">
+		<img src="examples/tangles.jpg">
+		<b>Tangles</b>
+		<p>Rec-tangles.
+	</td>
+	<td width="50%">
+		<img src="examples/water.jpg">
+		<b>Water</b>
+		<p>Very simple interference pattern generator.
+	</td>
+</tr>
+<tr>
+	<td width="50%">
+		<img src="examples/zebra.jpg">
 		<b>Zebra</b>
 		<p>The same complex function as in the Mesh program, but from a different perspective.
 	</td>
@@ -73,6 +86,6 @@ A collection of wallpaper generators
 * All wallpapers are 1024x768. If you have a different resolution, you can either change your wallpaper style to Strech or rewrite the programs. Sorry.
 
 ## References && Acknowledgements
-* The *clouds* and *islands* generators rely on the super-fast Perlin noise generator I found here: https://gist.github.com/nowl/828013
+* The *clouds*, *islands* and *flow* generators rely on the super-fast Perlin noise generator I found here: https://gist.github.com/nowl/828013
 * The *landscape* generator is shamelessly stolen from here: https://tyrellrummage.github.io/landscape/
 * The *marrowlike* generator follows the recursive algorithm described here: http://pcg.wikidot.com/forum/t-79282/multiplicative-cascades-ish
