@@ -12,6 +12,7 @@ generators=(
 	zebra
 	water
 	flow
+	wood
 )
 
 cd "$( dirname "${BASH_SOURCE[0]}" )"

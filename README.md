@@ -75,6 +75,11 @@ A collection of wallpaper generators
 </tr>
 <tr>
 	<td width="50%">
+		<img src="examples/wood.jpg">
+		<b>Wood</b>
+		<p>Modular Perlin noise stretched along the x axis.
+	</td>
+	<td width="50%">
 		<img src="examples/zebra.jpg">
 		<b>Zebra</b>
 		<p>The same complex function as in the Mesh program, but from a different perspective.
