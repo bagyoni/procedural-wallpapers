@@ -90,6 +90,10 @@ A collection of wallpaper generators
 ## Notes
 * All wallpapers are 1024x768. If you have a different resolution, you can either change your wallpaper style to Strech or rewrite the programs. Sorry.
 
-## References && Acknowledgements
+## Disclaimers
 * The *landscape* generator is shamelessly stolen from here: https://tyrellrummage.github.io/landscape/
 * The *marrowlike* generator follows the recursive algorithm described here: http://pcg.wikidot.com/forum/t-79282/multiplicative-cascades-ish
+* The *fern* generator uses a fractal image compression method that might be patented (I couldn't find much information about it)
+
+## Licensing
+All programs, except for those listed in the Disclaimers section, are in the public domain.

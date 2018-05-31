@@ -1,3 +1,7 @@
+// FLOW
+// Attila Bagyoni, 2018
+// This is a public domain software. Do whatever you want with it.
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
