@@ -21,7 +21,7 @@ A collection of wallpaper generators
 	<td width="50%">
 		<img src="examples/fern.jpg">
 		<b>Fern</b>
-		<p>Barnsley-fern with mutation.
+		<p>Barnsley fern with mutation.
 	</td>
 </tr>
 <tr>
@@ -91,6 +91,5 @@ A collection of wallpaper generators
 * All wallpapers are 1024x768. If you have a different resolution, you can either change your wallpaper style to Strech or rewrite the programs. Sorry.
 
 ## References && Acknowledgements
-* The *clouds*, *islands* and *flow* generators rely on the super-fast Perlin noise generator I found here: https://gist.github.com/nowl/828013
 * The *landscape* generator is shamelessly stolen from here: https://tyrellrummage.github.io/landscape/
 * The *marrowlike* generator follows the recursive algorithm described here: http://pcg.wikidot.com/forum/t-79282/multiplicative-cascades-ish
