@@ -1,19 +1,15 @@
 // TANGLES
 // Attila Bagyoni, 2018
-// This is a public domain software. Do whatever you want with it.
+// This software is public domain. Do whatever you want with it.
 
 #include <stdlib.h>
-#include <stdio.h>
 #include <string.h>
-#include <time.h>
 
-#define WID 1024
-#define HEI 768
+#include "lib/main.h"
 
 char bytes[WID * HEI * 3];
 
 void draw_rect(int maxsize, int r, int g, int b) {
-
 	int w = rand()%maxsize;
 	int h = maxsize-w;
 	int x0 = rand()%(WID-w);
@@ -30,7 +26,7 @@ void draw_rect(int maxsize, int r, int g, int b) {
 }
 
 void draw() {
-
+	memset(bytes, 230, WID*HEI*3);
 	int r = 128+(rand()%128);
 	int g = 128+(rand()%128);
 	int b = 128+(rand()%128);
@@ -49,23 +45,6 @@ void draw() {
 	}
 	int i;
 	for (i=1; i<25; i++) {
-		draw_rect(HEI-i*20, r-i*5, g-i*5, b-i*5);
+		draw_rect(HEI - i*HEI/40, r - i*5, g - i*5, b - i*5);
 	}
-}
-
-int main(int argc, char **argv) {
-
-	srand((unsigned)time(NULL));
-	memset(bytes, 230, WID*HEI*3);
-	draw();
-	
-	FILE *out = fopen(argv[1], "w");
-	
-	fprintf(out, "P6\n");
-	fprintf(out, "%d %d\n", WID, HEI);
-	fprintf(out, "255\n");
-	
-	fwrite(bytes, 1, WID*HEI*3, out);
-	fclose(out);
-	return 0;
 }

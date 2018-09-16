@@ -5,6 +5,8 @@ A collection of wallpaper generators
 1. `sudo apt-get install gcc imagemagick`
 1. `git clone https://github.com/ba-sz-at/procedural-wallpapers.git`
 1. `cd procedural-wallpapers/src`
+1. Open lib/main.h for editing.
+1. Change WID and HEI to the width and height of your screen (pixels), and save.
 1. `./wp-gen`
 1. The previous command should have generated a *wallpaper.jpg* in src/out. Set it as your desktop background.
 1. Add the *wp-gen* script to your startup applications. This will change your wallpaper at each startup.
@@ -86,9 +88,6 @@ A collection of wallpaper generators
 	</td>
 </tr>
 </table>
-
-## Notes
-* All wallpapers are 1024x768. If you have a different resolution, you can either change your wallpaper style to Strech or rewrite the programs. Sorry.
 
 ## Disclaimers
 * The *landscape* generator is shamelessly stolen from here: https://tyrellrummage.github.io/landscape/

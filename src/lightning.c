@@ -1,37 +1,47 @@
 // LIGHTNING
 // Attila Bagyoni, 2018
-// This is a public domain software. Do whatever you want with it.
+// This software is public domain. Do whatever you want with it.
 
 #include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <time.h>
 
-#define WID 1024
-#define HEI 768
+#include "lib/main.h"
+#include "lib/basicdrawing.h"
 
-#define PNUM 10000
+#define PNUM ((int) WID*10)
 
-char bytes[WID * HEI * 3];
-char r, g, b;
 int particles[PNUM][2];
 int step;
+int distribution;
 
-void fgcolor(char red, char green, char blue) {
-	r=red;
-	g=green;
-	b=blue;
+void generate_distribution() {
+	distribution = rand() % 4;
 }
 
-void draw_point(int x, int y) {
-	bytes[(WID*y+x)*3] = r;
-	bytes[(WID*y+x)*3+1] = g;
-	bytes[(WID*y+x)*3+2] = b;
+void place_charge(int* x, int* y) {
+	switch (distribution) {
+	case 0:
+		*x = rand() % WID;
+		*y = HEI - (rand() % (rand() % (HEI - 1) + 1)) - 2;
+		break;
+	case 1:
+		*x = rand() % WID;
+		*y = rand() % (rand() % (HEI - 1) + 1);
+		break;
+	case 2:
+		*x = WID - (rand() % (rand() % WID + 1)) - 1;
+		*y = rand() % (HEI - 1);
+		break;
+	case 3:
+		*x = rand() % (rand() % WID + 1);
+		*y = rand() % (HEI - 1);
+		break;
+	
+	}
 }
 
 void next_step() {
-	int x = rand() % WID;
-	int y = HEI - (rand() % (rand() % HEI + 1)) - 1;
+	int x, y;
+	place_charge(&x, &y);
 	int nearest;
 	int nearest_d_sq = WID*WID + HEI*HEI;
 	int i;
@@ -58,32 +68,20 @@ void next_step() {
 }
 
 void draw() {
+	generate_distribution();
 	particles[0][0] = rand() % WID;
 	particles[0][1] = 0;
 	int red = rand() % 120;
 	int green = rand() % 120;
 	step = 1;
 	while (step < PNUM) {
+		if (step % 2000 == 0) {
+			generate_distribution();
+		}
 		fgcolor(
 			red + (200-red)*(PNUM-step)/PNUM,
 			green + (200-green)*(PNUM-step)/PNUM,
 			255);
 		next_step();
 	}
-}
-
-int main(int argc, char **argv) {
-
-	srand((unsigned)time(NULL));
-	draw();
-	
-	FILE *out = fopen(argv[1], "w");
-	
-	fprintf(out, "P6\n");
-	fprintf(out, "%d %d\n", WID, HEI);
-	fprintf(out, "255\n");
-	
-	fwrite(bytes, 1, WID*HEI*3, out);
-	fclose(out);
-	return 0;
 }

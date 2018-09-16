@@ -1,21 +1,17 @@
 //Idea stolen from http://pcg.wikidot.com/forum/t-79282/multiplicative-cascades-ish
 
 #include <stdlib.h>
-#include <stdio.h>
 #include <string.h>
-#include <time.h>
 #include <math.h>
 
-#define WID 1024
-#define HEI 768
+#include "lib/main.h"
 
-char bytes[WID * HEI * 3];
 unsigned char *map;
 int width, height;
 
 void init_map() {
-	width=4;
-	height=3;
+	width = 4;
+	height = 3;
 	map = malloc(width*height);
 	int i;
 	for (i=0; i<width*height; i++) {
@@ -74,38 +70,20 @@ void scale2x_vert() {
 	height *= 2;
 }
 
-void draw_thing() {
-
+void draw() {
 	init_map();
 	int i;
-	for (i=0; i<8; i++) {
+	while (width < WID && height < HEI) {
 		scale2x_horiz();
 		scale2x_vert();
 		next_iter();
 	}
 	int x, y;
-   	for (x=0; x<width; x++) {
-		for (y=0; y<height; y++) {
+   	for (x=0; x<WID; x++) {
+		for (y=0; y<HEI; y++) {
 			bytes[(WID*y+x)*3] = map[width*y+x]/2+127;
 			bytes[(WID*y+x)*3+1] = map[width*y+x]/2+127;
 			bytes[(WID*y+x)*3+2] = map[width*y+x]/2+127;
 		}
 	}
-}
-
-
-int main(int argc, char **argv) {
-
-	srand(time(NULL));
-	draw_thing();
-	
-	FILE *out = fopen(argv[1], "w");
-	
-	fprintf(out, "P6\n");
-	fprintf(out, "%d %d\n", WID, HEI);
-	fprintf(out, "255\n");
-	
-	fwrite(bytes, 1, WID*HEI*3, out);
-	fclose(out);
-	return 0;
 }

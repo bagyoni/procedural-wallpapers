@@ -1,15 +1,10 @@
 //Code stolen from https://tyrellrummage.github.io/landscape/
 
 #include <stdlib.h>
-#include <stdio.h>
 #include <string.h>
-#include <time.h>
+#include <math.h>
 
-#define WID 1024
-#define HEI 768
-#define ITER 10
-
-char bytes[WID * HEI * 3];
+#include "lib/main.h"
 
 double *points;
 int points_len;
@@ -50,8 +45,9 @@ void generate_layer(double level, double steepness, char r, char g, char b) {
 	double init_points[2] = {level, level};
 	points = init_points;
 	points_len = 2;
+	int iters = log(WID) / log(2) + 1;
 	int i;
-	for (i=0; i<ITER; i++) {
+	for (i=0; i<iters; i++) {
 		generate_points(steepness);
 	}
 	for (i=0; i<points_len; i++) {
@@ -67,8 +63,8 @@ void generate_layer(double level, double steepness, char r, char g, char b) {
 	}
 }
 
-void generate_landscape() {
-	srand(time(NULL));
+void draw() {
+	memset(bytes, 240, WID*HEI*3);
 	int r = 128+(rand()%128);
 	int g = 128+(rand()%128);
 	int b = 128+(rand()%128);
@@ -85,24 +81,8 @@ void generate_landscape() {
 			b = m;
 			break;
 	}
-	generate_layer(200, 7, r, g, b);
-	generate_layer(400, 7, r-20, g-20, b-20);
-	generate_layer(500, 5, r-50, g-50, b-50);
-	generate_layer(600, 5, r-100, g-100, b-100);
-}
-
-int main(int argc, char **argv) {
-
-	memset(bytes, 240, WID*HEI*3);
-	generate_landscape();
-	
-	FILE *out = fopen(argv[1], "w");
-	
-	fprintf(out, "P6\n");
-	fprintf(out, "%d %d\n", WID, HEI);
-	fprintf(out, "255\n");
-	
-	fwrite(bytes, 1, WID*HEI*3, out);
-	fclose(out);
-	return 0;
+	generate_layer(HEI*1/5, 7, r, g, b);
+	generate_layer(HEI*2/5, 7, r-20, g-20, b-20);
+	generate_layer(HEI*3/5, 5, r-50, g-50, b-50);
+	generate_layer(HEI*4/5, 5, r-100, g-100, b-100);
 }

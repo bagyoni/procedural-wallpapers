@@ -31,7 +31,7 @@ else
 		mkdir -p out
 		cd out
 		[ -f "$1".o ] && [ $(date +%s%N -r ../"$1".c) -lt $(date +%s%N -r "$1".o) ] \
-				|| gcc -s -Ofast -lm ../"$1".c -o "$1".o
+				|| gcc -s -Ofast -lm ../lib/* ../"$1".c -o "$1".o
 		./"$1".o wallpaper.ppm
 		convert wallpaper.ppm wallpaper.jpg
 	fi
